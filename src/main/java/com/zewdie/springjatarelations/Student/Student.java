@@ -19,8 +19,7 @@ public class Student {
     @ManyToMany(mappedBy = "enrolledStudents")
     private Set<Course> studentCourses = new HashSet<>();
 
-    public Student(Long id, String name) {
-        this.id = id;
+    public Student(String name) {
         this.name = name;
     }
 

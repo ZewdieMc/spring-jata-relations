@@ -33,8 +33,7 @@ public class Course {
         return enrolledStudents;
     }
 
-    public Course(Long id, String name) {
-        this.id = id;
+    public Course(String name) {
         this.name = name;
     }
 

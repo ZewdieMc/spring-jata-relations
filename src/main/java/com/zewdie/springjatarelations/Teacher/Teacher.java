@@ -19,8 +19,7 @@ public class Teacher {
     @OneToMany(mappedBy = "teacher")
     private Set<Course> courses = new HashSet<>();
 
-    public Teacher(Long id, String name) {
-        this.id = id;
+    public Teacher(String name) {
         this.name = name;
     }
 
