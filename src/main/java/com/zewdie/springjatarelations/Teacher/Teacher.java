@@ -1,6 +1,11 @@
 package com.zewdie.springjatarelations.Teacher;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.zewdie.springjatarelations.Course.Course;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "teacher")
@@ -10,11 +15,22 @@ public class Teacher {
     private Long id;
     private String name;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "teacher")
+    private Set<Course> courses = new HashSet<>();
+
     public Teacher(Long id, String name) {
         this.id = id;
         this.name = name;
     }
-    public Teacher(){}
+
+    public Teacher() {
+    }
+
+
+    public Set<Course> getCourses() {
+        return courses;
+    }
 
     public Long getId() {
         return id;

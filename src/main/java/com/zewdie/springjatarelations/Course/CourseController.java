@@ -2,6 +2,8 @@ package com.zewdie.springjatarelations.Course;
 
 import com.zewdie.springjatarelations.Student.Student;
 import com.zewdie.springjatarelations.Student.StudentRepository;
+import com.zewdie.springjatarelations.Teacher.Teacher;
+import com.zewdie.springjatarelations.Teacher.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +14,15 @@ import java.util.List;
 public class CourseController {
     private CourseRepository courseRepository;
     private StudentRepository studentRepository;
+    private TeacherRepository teacherRepository;
 
     @Autowired
-    public CourseController(CourseRepository courseRepository, StudentRepository studentRepository) {
+    public CourseController(CourseRepository courseRepository,
+                            StudentRepository studentRepository,
+                            TeacherRepository teacherRepository) {
         this.courseRepository = courseRepository;
         this.studentRepository = studentRepository;
+        this.teacherRepository = teacherRepository;
     }
 
     @GetMapping
@@ -36,6 +42,17 @@ public class CourseController {
         Student student = studentRepository.findById(studentId).orElse(null);
         Course course = courseRepository.findById(courseId).orElse(null);
         course.enrollStudnt(student);
+        return courseRepository.save(course);
+    }
+
+
+    @PutMapping("/{courseId}/teachers/{teacherId}")
+    public Course assignTeacherToCourse(
+            @PathVariable("courseId") Long courseId,
+            @PathVariable("teacherId") Long teacherId) {
+        Teacher teacher = teacherRepository.findById(teacherId).orElse(null);
+        Course course = courseRepository.findById(courseId).orElse(null);
+        course.setTeacher(teacher);
         return courseRepository.save(course);
     }
 

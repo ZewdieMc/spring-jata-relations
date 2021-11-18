@@ -1,6 +1,7 @@
 package com.zewdie.springjatarelations.Course;
 
 import com.zewdie.springjatarelations.Student.Student;
+import com.zewdie.springjatarelations.Teacher.Teacher;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -13,6 +14,7 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
     @ManyToMany
     @JoinTable(
             name = "student_enrolled",
@@ -20,7 +22,13 @@ public class Course {
             inverseJoinColumns = @JoinColumn(name = "student_id")
     )
     private Set<Student> enrolledStudents = new HashSet<>();
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "teacher_id",referencedColumnName = "id")
+    private Teacher teacher;
 
+    public Teacher getTeacher() {
+        return teacher;
+    }
     public Set<Student> getEnrolledStudents() {
         return enrolledStudents;
     }
@@ -51,5 +59,10 @@ public class Course {
 
     public void enrollStudnt(Student student) {
         enrolledStudents.add(student);
+    }
+
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }
