@@ -5,9 +5,11 @@ import com.zewdie.springjatarelations.Student.StudentRepository;
 import com.zewdie.springjatarelations.Teacher.Teacher;
 import com.zewdie.springjatarelations.Teacher.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/courses")
@@ -45,6 +47,11 @@ public class CourseController {
         return courseRepository.save(course);
     }
 
+    @GetMapping("{courseId}/students")
+    public Set<Student> getEnrolledStudents(@PathVariable("courseId") Long courseId) {
+        return courseRepository.findStudentsByCourse(courseId);
+    }
+
 
     @PutMapping("/{courseId}/teachers/{teacherId}")
     public Course assignTeacherToCourse(
@@ -59,6 +66,12 @@ public class CourseController {
     @GetMapping("{courseId}")
     public Course getCourseById(@PathVariable("courseId") Long courseId) {
         return courseRepository.findById(courseId).get();
+    }
+
+    @DeleteMapping("{courseId}")
+    public ResponseEntity deleteCourse(@PathVariable("courseId") Long courseId) {
+        courseRepository.deleteById(courseId);
+        return ResponseEntity.ok().build();
     }
 
 }
