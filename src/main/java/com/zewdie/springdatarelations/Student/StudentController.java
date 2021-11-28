@@ -10,32 +10,36 @@ import java.util.List;
 @RestController
 @RequestMapping("/students")
 public class StudentController {
-    private StudentRepository studentRepository;
+    private StudentService studentService;
 
     @Autowired
-    public StudentController(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
     }
 
     @GetMapping
-    public List<Student> getStudents() {
-        return studentRepository.findAll();
+    public List<Student> getAllStudents() {
+        return studentService.getAllStudents();
     }
 
     @PostMapping
     public Student createStudent(@RequestBody Student student) {
-        return studentRepository.save(student);
+        return studentService.saveStudent(student);
     }
 
     @GetMapping("{studentId}/courses")
     List<Course> getEnrolledCourse(@PathVariable("studentId") Long studentId) {
-        return studentRepository.getEnrolledCourses(studentId);
+        return studentService.getEnrolledCourses(studentId);
+    }
+
+    @GetMapping("{studentId}")
+    public Student getStudentById(@PathVariable("studentId") Long studentId) {
+        return studentService.getStudentById(studentId);
     }
 
     @DeleteMapping("{studentId}")
     public ResponseEntity deleteStudent(@PathVariable("studentId") Long studentId) {
-        studentRepository.deleteById(studentId);
-        return ResponseEntity.ok().build();
+        return studentService.deleteStudent(studentId);
     }
 
 }
