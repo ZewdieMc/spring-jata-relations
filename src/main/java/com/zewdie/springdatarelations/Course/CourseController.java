@@ -1,9 +1,9 @@
-package com.zewdie.springjatarelations.Course;
+package com.zewdie.springdatarelations.Course;
 
-import com.zewdie.springjatarelations.Student.Student;
-import com.zewdie.springjatarelations.Student.StudentRepository;
-import com.zewdie.springjatarelations.Teacher.Teacher;
-import com.zewdie.springjatarelations.Teacher.TeacherRepository;
+import com.zewdie.springdatarelations.Student.Student;
+import com.zewdie.springdatarelations.Student.StudentRepository;
+import com.zewdie.springdatarelations.Teacher.Teacher;
+import com.zewdie.springdatarelations.Teacher.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,6 @@
-package com.zewdie.springjatarelations.Course;
+package com.zewdie.springdatarelations.Course;
 
-import com.zewdie.springjatarelations.Student.Student;
+import com.zewdie.springdatarelations.Student.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

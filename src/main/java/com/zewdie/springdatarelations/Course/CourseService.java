@@ -1,4 +1,4 @@
-package com.zewdie.springjatarelations.Course;
+package com.zewdie.springdatarelations.Course;
 
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package com.zewdie.springjatarelations.Course;
+package com.zewdie.springdatarelations.Course;
 
-import com.zewdie.springjatarelations.Student.Student;
-import com.zewdie.springjatarelations.Teacher.Teacher;
+import com.zewdie.springdatarelations.Student.Student;
+import com.zewdie.springdatarelations.Teacher.Teacher;
 
 import javax.persistence.*;
 import java.util.HashSet;

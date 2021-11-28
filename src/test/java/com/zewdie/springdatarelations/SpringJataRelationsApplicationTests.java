@@ -1,4 +1,4 @@
-package com.zewdie.springjatarelations;
+package com.zewdie.springdatarelations;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

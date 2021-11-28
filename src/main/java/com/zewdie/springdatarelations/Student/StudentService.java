@@ -1,4 +1,4 @@
-package com.zewdie.springjatarelations.Student;
+package com.zewdie.springdatarelations.Student;
 
 import org.springframework.stereotype.Service;
 

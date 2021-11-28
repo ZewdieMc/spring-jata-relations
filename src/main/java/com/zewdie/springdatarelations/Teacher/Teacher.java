@@ -1,7 +1,7 @@
-package com.zewdie.springjatarelations.Teacher;
+package com.zewdie.springdatarelations.Teacher;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.zewdie.springjatarelations.Course.Course;
+import com.zewdie.springdatarelations.Course.Course;
 
 import javax.persistence.*;
 import java.util.HashSet;
