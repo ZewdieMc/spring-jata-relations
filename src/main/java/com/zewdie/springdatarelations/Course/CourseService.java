@@ -37,7 +37,7 @@ public class CourseService {
     public Course enrollStudentToCourse(Long courseId, Long studentId) {
         Student student = studentRepository.findById(studentId).orElse(null);
         Course course = courseRepository.findById(courseId).orElse(null);
-        course.enrollStudnt(student);
+        course.enrollStudent(student);
         return courseRepository.save(course);
     }
 

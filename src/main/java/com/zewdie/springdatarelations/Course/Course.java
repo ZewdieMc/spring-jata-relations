@@ -56,7 +56,7 @@ public class Course {
         this.name = name;
     }
 
-    public void enrollStudnt(Student student) {
+    public void enrollStudent(Student student) {
         enrolledStudents.add(student);
     }
 
